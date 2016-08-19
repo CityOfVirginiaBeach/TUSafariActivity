@@ -81,7 +81,10 @@
 
 - (void)performActivity
 {
-	BOOL completed = [[UIApplication sharedApplication] openURL:_URL];
+    SFSafariViewController *svc = [[SFSafariViewController alloc] initWithURL:_URL];
+    BOOL completed = [self presentViewController:svc animated:YES completion:nil];
+    
+//	BOOL completed = [[UIApplication sharedApplication] openURL:_URL];
 	
 	[self activityDidFinish:completed];
 }
